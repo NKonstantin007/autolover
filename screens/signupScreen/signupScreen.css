@@ -1,0 +1,16 @@
+.signup ul{
+  list-style: square;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.signup h3{
+	text-align: left;
+}
+
+.signup-error{
+	border: 1px solid red
+}
+
+.signup-right{
+	border-color: #c6c9cc;
+}

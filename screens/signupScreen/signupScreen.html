@@ -1,0 +1,41 @@
+<slider label="Регистрация"></slider>
+<section class="main-area">
+	<div class="container">
+		<div class="row signup">
+			<div class="col-md-8 col-sm-6 col-xs-12">
+				<h5>Регистрация</h5>
+				<p>Зарегистрируйтесь на АвтоЛюбетель, используя форму справа. Это не займет много времнени. После регистрации не стесняйтесь приглащать друзей и знакомых посетить наш сайт. Им тоже понравится.</p>
+				<div class="alert alert-success alert-dismissable">
+					<b>Внимание!</b> При вводе логина и пароля допустимо использовать только символы латинского алфавита <span class="label label-success">a-z</span> и цифры <span class="label label-success">0-9</span>
+				</div>
+
+				<h3>Зачем регистрироваться?</h3>
+				<p>После регистрации вы первыми увидите или узнаете о:</p>
+					<ul>
+						<li>Самых актуальных автомобильных новостях</li>
+						<li>Презентации различных моделей разных производителей</li>
+						<li>Подробных характеристиках и особенностях новинок</li>
+						<li>Устройстве основных узлов автомобиля и автомобииля в целом</li>
+						<li>Правилах ремента и эксплуатации автомобиля</li>
+						<li>Интересных истрических событиях в сфере автотранспорта</li>
+					</ul>
+				<p>Кроме всего этого, у вас появиться возможность оставлять комментарии к статьям на нашем сайте и советоваться и узнавать мнения наших экспертов по любой интересующей вас проблеме</p>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="alert" ng-class="alertClass" ng-bind-html="message"></div>
+				<form novalidate class="sign-in-and-up-form"><br>
+					<label>Логин<br>
+						<input type="text" ng-model="newUser.login" ng-class="{'signup-error': loginIsError, 'signup-right': !loginIsError}" />
+					</label><br>
+					<label>Пароль<br>
+						<input type="password" ng-model="newUser.password" ng-class="{'signup-error': passwordIsError, 'signup-right': !passwordIsError}"/>
+					</label><br>
+					<label>Повторный пароль<br>
+						<input type="password"  ng-model="newUser.secondPassword" ng-class="{'signup-error': secondPasswordIsError, 'signup-right': !secondPasswordIsError}" />
+					</label><br>
+					<button class="sign-in-and-up-btn" type="button" ng-click="signupUser()">Зарегистрироваться</button>
+				</form>
+			</div>		
+		</div>
+	</div>
+</section>

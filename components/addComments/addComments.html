@@ -1,0 +1,26 @@
+<div class="col-sm-12 add-comment">
+	<form name="coments" class="form-horizontal">
+		<fieldset>
+			<legend>Ваш комментарий</legend>
+			<div class="form-group">
+				<div class="col-sm-12">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+						<textarea type="text" class="form-control col-sm-12" ng-model="comment" placeholder="Введите ваш комментарий" required></textarea> 
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-12">
+					<button type="submit" class="btn btn-default" ng-click="sendMessage()">Добавить комментарий</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<div class="alert alert-danger comment-error" ng-if="!userIsAuth && isFirstCommentSend">
+		<b>Ошибка!</b>Для того чтобы отправить комментарий необходиомо авторизоваться
+	</div>
+	<div class="list-coments">
+		<comment messages="messages"></comment>
+	</div>
+</div>

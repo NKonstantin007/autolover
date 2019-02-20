@@ -1,0 +1,17 @@
+.content{
+	position: fixed;
+	top: 206px;
+	right: 30px;
+	border: 2px solid #585858; 
+	border-radius: 5px;
+	padding: 10px;
+}
+.content li{
+	font: 400 18px/22px Arial Georgia sans-serif;
+	border-bottom: 1px solid #585858;
+	padding: 5px 0;
+}
+
+.content li:hover{
+	cursor: pointer;
+}

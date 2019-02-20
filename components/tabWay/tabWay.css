@@ -1,0 +1,7 @@
+.slideshow tab-way{
+	position: absolute;
+	background: rgba(245, 245, 245, 0.6);
+	top: 35px;
+	left: 40px;
+	z-index: 1;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lahg="ru" ng-app="app">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width/ initial-scale=1.0">
+		<title>АвтоЛюбитель</title>
+
+		<!-- Styles -->
+		<link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="styles/main.css">
+            <!--Component styles-->
+            <link rel="stylesheet" type="text/css" href="components/header/header.css">
+            <link rel="stylesheet" type="text/css" href="components/slider/slider.css">
+            <link rel="stylesheet" type="text/css" href="components/footer/footer.css">
+            <link rel="stylesheet" type="text/css" href="components/articleTitle/articleTitle.css">
+            <link rel="stylesheet" type="text/css" href="components/articleInfo/articleInfo.css">
+            <link rel="stylesheet" type="text/css" href="components/addComments/addComments.css">
+            <link rel="stylesheet" type="text/css" href="components/content/content.css">
+            <link rel="stylesheet" type="text/css" href="components/comment/comment.css">
+
+
+            <!--Screen styles-->
+            <link rel="stylesheet" type="text/css" href="screens/homeScreen/homeScreen.css">
+            <link rel="stylesheet" type="text/css" href="screens/signupScreen/signupScreen.css">
+            <link rel="stylesheet" type="text/css" href="screens/signinScreen/signinScreen.css">
+            <link rel="stylesheet" type="text/css" href="screens/reviewsScreen/articles/fordFocusThreeScreen/fordFocusThreeScreen.css">
+
+		
+		<!-- Favicon -->
+		 <link rel="icon" href="images/favicon.png">
+	</head>
+	<body>
+		<app-header></app-header>
+		<div ng-view></div>
+        <app-footer></app-footer>
+
+		<!--Libraries-->
+		<script language="javascript" src="libs/js/jquery.js"></script>
+		<script language="javascript" src="libs/js/angular/angular.min.js"></script>
+        <script language="javascript" src="libs/js/angular/angular-cookies.min.js"></script>
+		<script language="javascript" src="libs/js/angular/angular-route.min.js"></script>
+		<script language="javascript" src="libs/js/angular/angular-sanitize.min.js"></script>
+		<script language="javascript" src="libs/js/angular/angular-locale_ru-ru.js"></script>
+		<script language="javascript" src="libs/js/bootstrap/bootstrap.min.js"></script>
+    	<script language="javascript" src="libs/js/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
+        <script language="javascript" src="libs/js/BigInteger.min.js"></script>
+
+    	<!--Application-->
+    	<script language="javascript" src="app.js"></script>
+
+    	<!--Routing-->
+    	<script language="javascript" src="routing.js"></script>
+
+        <!--Services api angular-->
+        <script language="javascript" src="services/api/angular/baseService.js"></script>
+        <script language="javascript" src="services/api/angular/signService.js"></script>
+        <script language="javascript" src="services/api/angular/fordChatService.js"></script>
+
+        <!--Services api jquery-->
+        <script language="javascript" src="services/api/jquery/baseService.js"></script>
+        <script language="javascript" src="services/api/jquery/signService.js"></script>
+        <script language="javascript" src="services/api/jquery/fordChatService.js"></script>
+        <script language="javascript" src="services/api/jquery/generateCloseKeyService.js"></script>
+
+        <!--Models-->
+        <script language="javascript" src="services/models/userModel.js"></script>
+        <script language="javascript" src="services/models/vigenerModel.js"></script>
+        <script language="javascript" src="services/models/numberModel.js"></script>
+
+        <!--Components-->
+        <script language="javascript" src="components/header/header.js"></script>
+        <script language="javascript" src="components/slider/slider.js"></script>
+        <script language="javascript" src="components/tabWay/tabWay.js"></script>
+        <script language="javascript" src="components/footer/footer.js"></script>
+        <script language="javascript" src="components/articleTitle/articleTitle.js"></script>
+        <script language="javascript" src="components/articleInfo/articleInfo.js"></script>
+        <script language="javascript" src="components/content/content.js"></script>
+        <script language="javascript" src="components/addComments/addComments.js"></script>
+        <script language="javascript" src="components/comment/comment.js"></script>  
+
+    	<!--Screens-->
+    	<script language="javascript" src="screens/homeScreen/homeScreen.js"></script>
+    	<script language="javascript" src="screens/allAboutCarsScreen/allAboutCarsScreen.js"></script>
+    	<script language="javascript" src="screens/factsScreen/factsScreen.js"></script>
+    	<script language="javascript" src="screens/reviewsScreen/reviewsScreen.js"></script>
+    	<script language="javascript" src="screens/signinScreen/signinScreen.js"></script>
+    	<script language="javascript" src="screens/signupScreen/signupScreen.js"></script>
+        <script language="javascript" src="screens/reviewsScreen/articles/fordFocusThreeScreen/fordFocusThreeScreen.js"></script>
+
+	</body>
+</html>

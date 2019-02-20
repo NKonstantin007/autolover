@@ -1,0 +1,20 @@
+<header class="container-fluid navbar navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<h1 class="navbar-brend logotype">
+				<span><a href="#!/home"><img src="images/favicon.png">Авто<br>Любитель</a></span>
+			</h1>
+		</div>
+		<ul class="sign-in-and-up-menu">
+			<li id="user" ng-if="isSignin" ng-bind-html="userHtml"></li>
+			<li ng-click="signinOrOut()"><a href="" id="exit">{{signinBtn}}</a></li>
+			<li ng-if="!isSignin"><a href="#!/signup">Регистрация</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right navigation">
+			<li><a href="#!/home">Главная</a></li>
+			<li><a href="#!/allcars">Все об автомобилях</a></li>
+			<li><a href="#!/facts">Интересные факты</a></li>
+			<li><a href="#!/reviews">Обзоры автомобилей</a></li>
+		</ul>
+	</div>
+</header>

@@ -1,0 +1,11 @@
+.signin-text{
+	text-align:  center;
+}
+
+.signin-error{
+	border: 1px solid red
+}
+
+.signin-right{
+	border-color: #c6c9cc;
+}

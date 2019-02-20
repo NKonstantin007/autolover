@@ -1,0 +1,17 @@
+.add-comment legend{
+	font-size: 24px;
+	padding-top: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #BABDB6;
+}
+
+.add-comment{
+	background: #FFFFFF;
+	border-radius: 4px;
+}
+
+.comment-error{
+	margin-top: 20px;
+	width: 400px;
+}
+

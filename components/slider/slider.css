@@ -1,0 +1,38 @@
+.slideshow{
+	position: relative;
+	background: #F5F5F5;
+}
+
+.slideshow img {
+	width: 100%;
+	padding-bottom: 0; 
+}
+.numberImage{
+	color: #2E3436;
+	font-size: 18px;
+	font-weight: 500;
+	padding: 8px 12px;
+	position: absolute;
+	top: 32px;
+	z-index: 1;
+}
+
+.circles{
+	background: #F5F5F5;
+	text-align: center;
+}
+
+.page{
+	cursor: pointer;
+	height: 6px;
+	width: 25px;
+	margin: 0 2px;
+	background: #bbb;
+	display: inline-block;
+	transition: background 0.6s ease-in;
+}
+
+.selected,
+.page:hover{
+	background: #13133B;
+}

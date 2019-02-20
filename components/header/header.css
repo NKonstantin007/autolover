@@ -1,0 +1,51 @@
+.logotype{
+	padding: 10px 0 10px 0;
+	font-size: 36px;
+	font-weight: 200;
+	line-height: 1em;
+	border-top: 4px solid #186B59;
+	border-bottom: 4px solid #186B59;
+	text-transform: uppercase;
+	position: relative;
+	left: 30px;
+}
+
+.logotype img{
+	width: 55px;
+}
+
+.sign-in-and-up-menu{
+	position: absolute;
+	right: 100px;
+	top: 15px;
+	display: inline-block;
+}
+
+.sign-in-and-up-menu li{
+	display: inline;
+	padding: 8px 10px;
+	background: radial-gradient(#2F1580	, #13133B);
+	border: 2px solid #186B59;
+	border-radius: 20px;
+	color: #F5F5F5;
+	transition: 0.5s ease;
+	margin-left: 20px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.sign-in-and-up-menu li:hover{
+	background: #13133B;
+	border: none;
+	cursor: pointer;
+}
+
+.sign-in-and-up-menu #user {
+	padding: 5px 10px;
+	font-size: 16px;
+	text-transform: none;
+	color: #F5F5F5;
+	border-radius: 20px;
+	border: 1px solid #F5F5F5;
+	background: none;	
+}

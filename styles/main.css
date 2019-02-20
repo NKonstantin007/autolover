@@ -1,0 +1,377 @@
+/*
+=====================================
+CSS Reset from Eric Mayer
+=====================================
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*
+=========================================
+Èìïîðò øðèôòà
+=========================================
+*/
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+/*
+=========================================
+Block size
+=========================================
+*/
+*{
+	box-sizing: border-box;
+}
+
+.slideshow .breadcrumb{
+	position: absolute;
+	background: rgba(245, 245, 245, 0.6);
+	top: 35px;
+	left: 40px;
+	z-index: 1;
+}
+
+/*
+=========================================
+Genaral style
+=========================================
+*/
+h1,
+h3,
+h4.
+h5,
+{
+	font-family: "Ubuntu Condensed", sans-serif;
+	margin-bottom: 20px;
+}
+
+p{
+	margin-bottom: 20px;
+}
+
+h1, h3, h4{
+	color: #186B59;
+} 
+
+h1{
+	font-size: 36px;
+	line-height: 40px;
+}
+h3{
+	font-size: 24px;
+}
+h5{
+	font-size: 18px;
+	color: #1D8E75;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+body{
+	color: #3C3C3C;
+	background: #13133B;
+	padding-top: 70px;
+	font: 300 16px/22px Georgia, Arial, sans-serif;
+}
+
+/*
+=========================================
+Ññûëêè
+=========================================
+*/																																				
+a{
+	color: #186B59;
+	text-decoration: none;
+	transition: 0.5s ease;
+}
+a:hover{
+	color: #1D8E75;
+	text-decoration: none;
+}
+.col-1-3 a:hover h3{
+	color: #1D8E75;
+}
+/*
+=========================================
+Header and Footer
+=========================================
+*/
+
+.navbar{
+	background: rgba(19, 19, 59, 0.98);
+}
+
+.navigation{
+	font-weight: normal;
+	font-size: 15px;
+	text-transform: uppercase;
+	line-height: .5px;
+	padding-top: 60px;
+}
+
+.navigation li a{
+	padding: 6px 10px;
+	margin-right: 5px;
+	border-radius: 5px;
+}
+
+.navigation li a:hover{
+	background: #F5F5F5;
+}
+.navigation li:last-child{
+	padding-right: 0;
+}
+/*
+=========================================
+Main area of page
+=========================================
+*/
+.main-area{
+	position: relative;
+	background: #F5F5F5;
+	padding: 70px 0 40px 0;
+}
+.main-area img{
+		border-radius: 5px;
+		width: 100%;
+		display: block;
+		margin-bottom: 20px;
+		border: 2px solid #186B59;
+}
+.main-area h3,
+.main-area h5{
+	margin-bottom: 20px;
+	text-align: center;
+}
+.main-area h5{
+	letter-spacing: 3px;
+}
+
+/*
+========================================
+Signin and Signup
+========================================
+*/
+
+.sign-in-and-up-btn{
+  border-radius: 5px;
+  border: 0;
+  background: radial-gradient(#1D8E75, #186B59);
+  padding: 8px 20px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.sign-in-and-up-btn:hover{
+  background: #1D8E75;
+  color: #3C3C3C;
+}
+
+.sign-in-and-up-form label{
+  color: #888;
+  margin: 5px 0 10px 0;
+  width: 100%;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+form input{
+  border: 1px solid #c6c9cc;
+  border-radius: 5px;
+  padding: 5px 8px;
+  width: 100%;
+  display: block;
+}
+
+.alert b {
+	font-weight: bold;
+}
+/*
+=========================================
+Annotation
+=========================================
+*/
+
+.annotation img{
+	width: 100%;
+	border-radius: 5px;
+	margin-right: 20px;
+}
+.annotation p{
+	font: 400 16px/22px Arial Georgia sans-serif;
+}
+.annotation a:hover h3{
+	color: #1D8E75;
+}
+.annotation a h3{
+	font-weight: bold;
+	text-align: left;
+	letter-spacing: 1px;
+}
+.annotation{
+	margin-bottom: 40px;
+	border-bottom: 1px solid #BABDB6;
+}
+
+/*
+=========================================
+Ìîäàëüíîå èçîáðàæåíèÿ
+=========================================
+*/
+
+#myModal{
+	position: fixed;
+	z-index: 10;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content{
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 600px;
+}
+
+#caption{
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+	text-align: center;
+	color: #ccc;
+	padding: 10px 0;
+	height: 150px; 
+}
+
+.modal-content,
+#caption{
+	-webkit-animation-name:zoom;
+	-webkit-animation-duration: 1s;
+	animation-name:zoom;
+	animation-duration: 1s;
+}
+
+@-webkit-keyframes zoom{
+	from{-webkit-transform:scale(0)}
+	to{-webkit-transform:scale(1)}
+}
+
+@keyframes zoom{
+	from{transform:scale(0)}
+	to{transform:scale(1)}
+}
+
+.close{
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	color: #f1f1f1;
+	font-size: 45px;
+	font-weight: bold;
+	transition: 0.3s;
+}
+.close:hover, .close:focus{
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+
+/*
+=========================================
+Êíîïêà íàâåðõ
+=========================================
+*/
+.btn-top{
+  border: 0;
+  background: radial-gradient(#1D8E75, #186B59);
+  padding: 8px 20px;
+  font-size: 14px;
+  color: #fff;
+  display: none;
+  position: fixed;
+  top: 120px;
+  right: 30px;
+  z-index: 1;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.btn-top:hover{
+  background: #1D8E75;
+}
+
+/*
+=========================================
+Articles
+=========================================
+*/
+
+.text-article{
+	margin-left: 50px;
+	margin-top: 66px;
+	font: 400 16px/22px Arial Georgia sans-serif;
+	padding: 10px 10px 10px 0;
+	border-radius: 5px
+}
+.text-article img{
+	box-shadow: 3px 6px 2px rgba(0, 0, 0, .3);
+}
+/*.text-article .row:last-child{
+	background: #FFFFFF;
+	border-radius: 4px;
+}*/
+.text-article h3{
+	text-align: left;
+}

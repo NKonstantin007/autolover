@@ -1,0 +1,9 @@
+.primary-footer ul{
+	padding: 10px 0;
+}
+
+.primary-footer small{
+	color: #F5F5F5;
+	position: relative;
+	top: 20px;
+}

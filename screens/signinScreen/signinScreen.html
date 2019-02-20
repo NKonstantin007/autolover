@@ -1,0 +1,21 @@
+<slider label="Авторизация"></slider>
+<section class="main-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-4 col-sm-offset-3 col-md-4 col-sm-6">
+				<div class="alert alert-danger" ng-show="message.length > 0" ng-bind-html="message"></div>
+				<h5>Авторизация</h5>
+				<p class="signin-text">Войдите, используя свой логин и пароль</p>
+				<form novalidate name="authorization" class="sign-in-and-up-form">
+					<label>Логин<br>
+						<input type="text" ng-model="user.login" ng-class="{'signin-error': loginIsError, 'signin-right': !loginIsError}" />
+					</label><br>
+					<label>Пароль<br>
+						<input type="password"  ng-model="user.password" ng-class="{'signin-error': passwordIsError, 'signin-right': !passwordIsError}" />
+					</label><br>
+					<button class="sign-in-and-up-btn" type="button" ng-click="signinUser()">Вход</button>
+				</form>
+			</div>	
+		</div>
+	</div>
+</section>

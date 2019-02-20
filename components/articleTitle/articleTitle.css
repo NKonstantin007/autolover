@@ -1,0 +1,20 @@
+.title{
+	position: absolute;
+	top: 0px;
+	padding-bottom: 10px;
+	width: 100%;
+	background: #fff;
+	border-top: 1px solid #585858;
+	border-bottom: 1px solid #585858;
+}
+.title h1{
+	padding-left: 40px;
+}
+
+.title .breadcrumb{
+	padding-left: 40px;
+	padding-top: 35px;
+	margin-bottom: -5px;
+	background: #fff;	
+}
+

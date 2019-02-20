@@ -1,0 +1,41 @@
+/*
+=========================================
+Оформление таблиц
+=========================================
+*/
+.table caption{
+	font-size: 18px;
+	color: #186B59;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.table th, td{
+	vertical-align: middle;
+	text-align: center;
+}
+
+.table thead{
+	background: #186B59;
+	background: linear-gradient(#49708f, #13133B);
+	color: #F5F5F5;
+	font-size: 11px;
+	text-transform: uppercase;
+}
+
+/*#Ford_Focus img,
+#Duratec_1.6 img,
+#Duratec_2.0 img,
+#gearbox img,
+#electric_power img,
+#cheap_is_not_bad img,
+#cost img{
+	cursor: pointer;
+	width: 80%;
+}*/
+
+#cost img{
+	cursor: pointer;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
