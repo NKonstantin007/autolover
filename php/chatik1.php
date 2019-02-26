@@ -5,10 +5,10 @@
 	{
 		$msg = json_decode($_POST['newMsg']);
 		$date = date("d.m.Y H:i:s");
-		$autor = $msg->author;
+		$author = $msg->author;
 		$text = $msg->text;
 
-		if(!empty($date) && !empty($autor) &&  !empty($text))
+		if(!empty($date) && !empty($author) &&  !empty($text))
 		{
 
 			$db = mysqli_connect("localhost", "root", "", "auto");

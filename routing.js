@@ -36,8 +36,12 @@ angular.module("app").config(["$routeProvider", function ($routeProvider) {
 		controller: "fordFocusThreeScreenController"
 	});
 
+	$routeProvider.when("/allcars/whatisengine", {
+		templateUrl: "screens/allAboutCarsScreen/articles/whatIsEngineScreen/whatIsEngineScreen.html",
+		controller: "whatIsEngineScreenController"
+	});
+
 	$routeProvider.otherwise({
         redirectTo: '/home'
     });
-
 }]);

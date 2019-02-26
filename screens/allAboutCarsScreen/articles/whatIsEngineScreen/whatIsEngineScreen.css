@@ -1,0 +1,51 @@
+/*
+=========================================
+Что же такое двигатель
+=========================================
+*/
+#engine ol{
+	list-style-type: decimal;
+	padding-left: 40px;
+	margin-bottom: 20px;
+}
+/*
+=========================================
+Бензиновый двигатель
+=========================================
+*/
+#petrol-engine ul{
+	list-style-type: disc;
+	padding-left: 40px;
+	margin-bottom: 20px;
+}
+
+
+/*
+=========================================
+Изображения
+=========================================
+*/
+#diesel-engine img,
+#petrol-engine img,
+#rotor-engine img,
+#gas-engine img
+{
+	float: right;
+	width: 300px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	trasition: 0.3s ease-in;
+}
+
+#carburetor img,
+#injector img
+{
+	float: left;
+	margin-right: 10px;
+	margin-left: 0;
+}
+img:hover{
+	cursor: pointer;
+
+}
+

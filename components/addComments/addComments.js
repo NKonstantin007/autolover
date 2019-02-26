@@ -13,10 +13,9 @@ angular.module("components").component("addComments", {
  				jqFordChatService.sendMessage(message).then(
  					function(data) {
  						$scope.comment = "";
- 						$scope.getAllMessages();
+ 						getAllMessages();
  					}
-				);
-
+				); 
  			}
  			else {
  				$scope.isFirstCommentSend = true;
