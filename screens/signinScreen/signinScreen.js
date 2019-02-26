@@ -103,7 +103,6 @@ angular.module("controllers")
 					var result = data;
 					if(result == "success") {
 						$cookies.putObject("autoloverUser", $scope.user);
-						console.log($scope.user.login);
 						userModel.setUser($scope.user.login);
 						$scope.$emit("user-changed");
 						$location.path("/home");

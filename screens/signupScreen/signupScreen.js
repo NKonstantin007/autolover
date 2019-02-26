@@ -1,9 +1,6 @@
 'use strict'
 
 angular.module("controllers")
-	// .config(["jqGenerateCloseKeyServiceProvider", function(jqGenerateCloseKeyServiceProvider) {
-	//     jqGenerateCloseKeyServiceProvider.setUrl("php/registration.php");
-	// }])
 	.controller("signupScreenController", function($scope, jqSignService, numberModel, vigenerModel, jqGenerateCloseKeyService) {
 
 	function init() {
@@ -103,28 +100,6 @@ angular.module("controllers")
 					signup(closeKey);
 				}
 			);
-
-			// var obj = {
-			// 	login: encryptVigener($scope.newUser.login, key).toLowerCase(), // шифруем логин
-			// 	password: encryptVigener($scope.newUser.password, key).toLowerCase() // шифруем пароль
-			// };
-
-			// signService.signup(obj).then(
-			// 	function(data) {
-			// 		var result = data;
-			// 		if(result == "success") {
-			// 			$scope.alertClass = "alert-success";
-			// 			$scope.message = "<b>Поздравляем!</b>" + "Регистрация прошла успешно";
-			// 		}
-			// 		else {
-			// 			$scope.alertClass = "alert-danger";
-			// 			$scope.message = "<b>Ошибка! </b>" +  "Пользователь с данным логином уже существует";
-			// 		}
-			// 	},
-			// 	function( req, status, err ) {
-			// 		console.log( 'что-то пошло не так', status, err );
-			// 	}
-			// );
 		}
 	}
 

@@ -2,7 +2,10 @@
 
 angular.module("components").component("addComments", {
 	templateUrl: "components/addComments/addComments.html",
-	controller: function($scope, userModel, jqFordChatService, $timeout) {
+	bindings: {
+        url: "<"
+    },
+	controller: function($scope, userModel, jqChatService, $timeout) {
  		$scope.sendMessage = function() {
  			if(userModel.isAuth()) {
  				var message = {
@@ -10,10 +13,10 @@ angular.module("components").component("addComments", {
  					text: $scope.comment
  				};
 
- 				jqFordChatService.sendMessage(message).then(
+ 				jqChatService.sendMessage($scope.url, message).then(
  					function(data) {
  						$scope.comment = "";
- 						getAllMessages();
+ 						getAllMessages($scope.url);
  					}
 				); 
  			}
@@ -25,13 +28,15 @@ angular.module("components").component("addComments", {
  		this.$onInit = function() {
  			$scope.userIsAuth = userModel.isAuth();
 			$scope.isFirstCommentSend = false;
-			getAllMessages();
+			$scope.url = this.url;
+			getAllMessages($scope.url);
  		}
 
- 		function getAllMessages() {
- 			jqFordChatService.getAllMessages().then(
- 				function(data) {
- 					$scope.$apply($scope.messages = data); 				}
+ 		function getAllMessages(url) {
+ 			jqChatService.getAllMessages(url).then(
+ 				function(data) { 
+ 					$scope.$apply($scope.messages = data); 				
+ 				}
 			);
  		}
 	}

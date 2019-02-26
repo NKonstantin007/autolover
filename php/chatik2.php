@@ -3,23 +3,26 @@
 	if($_POST["newMsg"])
 	{
 		$msg = json_decode($_POST['newMsg']);
-		$date = $msg->date;
-		$autor = $msg->autor;
+		$date = date("d.m.Y H:i:s");
+		$author = $msg->author;
 		$text = $msg->text;
 
-		if(!empty($date) && !empty($autor) &&  !empty($text))
+		if(!empty($date) && !empty($author) &&  !empty($text))
 		{
 
 			$db = mysqli_connect("localhost", "root", "", "auto");
-			$query = mysqli_query($db, "INSERT INTO chat2 (date, autor, text) VALUES('$date', '$autor', '$text')");
+			$query = mysqli_query($db, "INSERT INTO chat2 (date, author, text) VALUES('$date', '$author', '$text')");
 			mysqli_close($db);
 			echo "success";
 			exit;
 		}
+		else {
+			echo "error";
+		}
 
 	}
 
-	if($_POST["allMsg"])
+	if($_GET["allMsg"])
 	{
 		$db = mysqli_connect("localhost", "root", "", "auto");
 		$result = mysqli_query($db, "SELECT * FROM chat2");
@@ -28,8 +31,8 @@
 		{
 			$row = mysqli_fetch_assoc($result);
 			do{
-				$arr = array("date" => $row["date"],"autor" => $row["autor"], "text" => $row["text"]);
-				array_push($answer, $arr);
+				$arr = array("date" => $row["date"],"author" => $row["author"], "text" => $row["text"]);
+				array_unshift($answer, $arr);
 			}while($row = mysqli_fetch_assoc($result));
 		}
 		mysqli_close($db);
