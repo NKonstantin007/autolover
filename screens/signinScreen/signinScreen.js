@@ -1,10 +1,8 @@
 'use strict'
 
 angular.module("controllers")
-	// .config(["jqGenerateCloseKeyServiceProvider", function(jqGenerateCloseKeyServiceProvider) {
- //    	jqGenerateCloseKeyServiceProvider.setUrl("php/enter.php");
-	// }]) 
-	.controller("signinScreenController", function($scope, $location, jqSignService, $cookies, userModel, numberModel, vigenerModel, jqGenerateCloseKeyService) {
+	.controller("signinScreenController", function($scope, $location, jqSignService, $cookies, userModel,
+		numberModel, vigenerModel, jqGenerateCloseKeyService) {
 
 		function init() {
 			$scope.user = {

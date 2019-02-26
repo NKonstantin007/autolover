@@ -2,7 +2,7 @@
 
 angular.module("components").component("addComments", {
 	templateUrl: "components/addComments/addComments.html",
-	controller: function($scope, userModel, jqFordChatService) {
+	controller: function($scope, userModel, jqFordChatService, $timeout) {
  		$scope.sendMessage = function() {
  			if(userModel.isAuth()) {
  				var message = {
@@ -13,7 +13,7 @@ angular.module("components").component("addComments", {
  				jqFordChatService.sendMessage(message).then(
  					function(data) {
  						$scope.comment = "";
- 						getAllMessages();
+ 						$scope.getAllMessages();
  					}
 				);
 
@@ -32,10 +32,7 @@ angular.module("components").component("addComments", {
  		function getAllMessages() {
  			jqFordChatService.getAllMessages().then(
  				function(data) {
- 					// #TODO приходит JSON надо получить объект
- 					$scope.messages = data;
- 					console.log($scope.messages);
- 				}
+ 					$scope.$apply($scope.messages = data); 				}
 			);
  		}
 	}
