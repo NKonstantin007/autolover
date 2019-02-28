@@ -15,17 +15,21 @@ angular.module("controllers").controller("fordFocusThreeScreenController", funct
 
 			$scope.url = "php/chatik1.php";
 
+			$scope.isShowModalImage = false;
+			$scope.src = null;
+			$scope.imageDiscription = null;
+
 			$scope.content = [
 			{
 				link: "Ford_Focus",
 				title: "Ford Focus III"
 			},
 			{
-				link: "Duratec_1.6",
+				link: "Duratec_1_6",
 				title: "Двигатель Duratec 1.6"
 			},
 			{
-				link: "Duratec_2.0",
+				link: "Duratec_2_0",
 				title: "Новый движок Focus 3 Duratec 2.0" 
 			},
 			{
@@ -47,4 +51,16 @@ angular.module("controllers").controller("fordFocusThreeScreenController", funct
 		}
 
 		init();
+
+		$scope.showModalImage = function(src, discription) {
+			$scope.src = src;
+			$scope.imageDiscription = discription;
+			$scope.isShowModalImage = true;
+			$scope.$emit("show-header", !$scope.isShowModalImage);
+		}
+
+		$scope.hideModalImage = function() {
+			$scope.isShowModalImage = false;
+			$scope.$emit("show-header", !$scope.isShowModalImage);
+		}
 	});

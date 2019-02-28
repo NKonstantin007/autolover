@@ -259,11 +259,11 @@ Annotation
 
 /*
 =========================================
-Ìîäàëüíîå èçîáðàæåíèÿ
+Modal image
 =========================================
 */
 
-#myModal{
+.modal-image{
 	position: fixed;
 	z-index: 10;
 	padding-top: 100px;
@@ -275,14 +275,14 @@ Annotation
 	background-color: rgba(0, 0, 0, 0.9);
 }
 
-.modal-content{
+.modal-image img{
 	margin: auto;
 	display: block;
 	width: 80%;
-	max-width: 600px;
+	max-width: 800px;
 }
 
-#caption{
+.caption{
 	margin: auto;
 	display: block;
 	width: 80%;
@@ -293,17 +293,10 @@ Annotation
 	height: 150px; 
 }
 
-.modal-content,
+.modal-image img,
 #caption{
-	-webkit-animation-name:zoom;
-	-webkit-animation-duration: 1s;
 	animation-name:zoom;
 	animation-duration: 1s;
-}
-
-@-webkit-keyframes zoom{
-	from{-webkit-transform:scale(0)}
-	to{-webkit-transform:scale(1)}
 }
 
 @keyframes zoom{
@@ -320,7 +313,8 @@ Annotation
 	font-weight: bold;
 	transition: 0.3s;
 }
-.close:hover, .close:focus{
+.close:hover, 
+.close:focus{
 	color: #bbb;
 	text-decoration: none;
 	cursor: pointer;

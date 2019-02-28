@@ -16,7 +16,7 @@
 					</ol>
 				</section>
 				<section id="petrol-engine">
-					<img src="images/allcars/whatIsEngine/petrol-engine.jpg" alt="Бензиновый двигатель">
+					<zooming-image src="images/allcars/whatIsEngine/petrol-engine.jpg" discription="Бензиновый двигатель" on-click="showModalImage(src, discription)"></zooming-image>
 				  	<h3>Бензиновый двигатель</h3>
 				  	<p>Это вид двигателей внутреннего сгорания, который работает на принципе предварительно сжатой топливно-воздушной смеси,  воспламеняемой электрической искрой.</p>
 				  	<p>Системы питания в таких агрегатах могут быть 2 типов: </p>
@@ -27,19 +27,19 @@
 
 				  	<div id="carburetor" class="clearfix">
 					  	<h3>Карбюраторные ДВС</h3>
-					  	<img src="images/allcars/whatIsEngine/carburetor-engine.jpg" alt="Карбюраторные ДВС">
+					  	<zooming-image src="images/allcars/whatIsEngine/carburetor-engine.jpg" discription="Карбюраторные ДВС" on-click="showModalImage(src, discription)"></zooming-image>
 					  	<p>Приготовление гомогенной (однородной по своему составу), топливно-воздушной смеси происходит путем распыления жидкого топлива в воздушном потоке, интенсивность которого регулируется степенью поворота дроссельной заслонки. Все операции по приготовлению смеси проводятся за пределами камеры сгорания двигателя.</p>
 					</div>
 
 					<div id="injector" class="clearfix">
 					  	<h3>Инжекторные ДВС</h3>
-					  	<img src="images/allcars/whatIsEngine/inzhector-engine.jpg" alt="Инжекторные ДВС">
+					  	<zooming-image src="images/allcars/whatIsEngine/inzhector-engine.jpg" discription="Инжекторные ДВС" on-click="showModalImage(src, discription)"></zooming-image>
 					  	<p>Приготовление ТВС осуществляется в камере сгорания двигателя, путем распыления топлива инжекторными форсунками. Управление впрыском осуществляется электронным блоком или бортовым компьютером автомобиля. Мгновенная реакция управляющей системы на изменение режима работы двигателя обеспечивает стабильность работы и оптимальный расход топлива.</p>
 					</div>
 		  		</section>
 
 		  		<section id="diesel-engine" class="clearfix">
-		  			<img src="images/allcars/whatIsEngine/diesel-engine.jpg" alt="Дизельный двигатель">
+		  			<zooming-image src="images/allcars/whatIsEngine/diesel-engine.jpg" discription="Дизельный двигатель" on-click="showModalImage(src, discription)"></zooming-image>
 				  	<h3>Дизельный двигатель</h3>
 				  	<p>Дизельный двигатель работает на дизтопливе, а также в значительной мере отличается от бензинового. Основное отличие заключается в отсутствии искровой системы зажигания.  Воспламенение смеси топлива и воздуха в дизеле происходит от сжатия.</p>
 				  	<p>Если просто, сначала в цилиндрах сжимается воздух, который сильно нагревается. В последний момент происходит впрыск солярки прямо в камеру сгорания, после чего нагретая и сильно сжатая смесь воспламеняется самостоятельно</p>
@@ -47,13 +47,13 @@
 
 				<section id="rotor-engine" class="clearfix">
 				  	<h3>Роторный двигатель</h3>
-				  	<img src="images/allcars/whatIsEngine/rotor-engine.jpg" alt="Роторный двигатель">
+				  	<zooming-image src="images/allcars/whatIsEngine/rotor-engine.jpg" discription="Роторный двигатель" on-click="showModalImage(src, discription)"></zooming-image>
 				  	<p>Двигатель Ванкеля (роторно-поршневой двигатель) представляет собой принципиально иную силовую установку</p>
 				  	<p>Внутри цилиндра размещается ротор (поршень) с зубчатым колесом, который вращаться в нем. Поверхность цилиндра создана по эпитрохоиде. Данная конструкция дает возможность создать четырехтактный цикл, без дополнительного механизма газораспределения. На практике такие двигатели получили распространения в виде трехгранного ротора на двигателях лодок. Размеры и вес такого двигателя в два-три раз меньше двигателей внутреннего сгорания при одинаковой мощности.</p>
 				</section>
 
 				<section id="gas-engine" class="clearfix">
-				  	<img src="images/allcars/whatIsEngine/gas-engine.jpg" alt="Газовый двигатель">
+				  	<zooming-image src="images/allcars/whatIsEngine/gas-engine.jpg" discription="Газовый двигатель" on-click="showModalImage(src, discription)"></zooming-image>
 				  	<h3>Газовый двигатель</h3>
 				  	<p>Тепловой агрегат, способный работать по циклу Отто. Основой является подведение тепла к рабочему тела, при условии постоянного объема. Отличительной особенностью в сравнении с бензиновым двигателем,  наличие необходимого более высокой степени сжатия, за счет большего октанового числа, чем у бензина.</p>
 				</section>
@@ -68,3 +68,8 @@
 		</div>
 	</div>
 </section>
+<div class="modal-image" ng-if="isShowModalImage">
+	<span class="close" ng-click="hideModalImage()">&times</span>
+	<img ng-src="{{src}}"> 
+	<div class="caption">{{imageDiscription}}</div>
+</div>

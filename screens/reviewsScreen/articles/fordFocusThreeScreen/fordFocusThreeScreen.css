@@ -22,17 +22,12 @@
 	text-transform: uppercase;
 }
 
-/*#Ford_Focus img,
-#Duratec_1.6 img,
-#Duratec_2.0 img,
+#Ford_Focus img,
+#Duratec_1_6 img,
+#Duratec_2_0 img,
 #gearbox img,
 #electric_power img,
 #cheap_is_not_bad img,
-#cost img{
-	cursor: pointer;
-	width: 80%;
-}*/
-
 #cost img{
 	cursor: pointer;
 	width: 80%;

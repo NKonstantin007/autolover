@@ -5,6 +5,7 @@ angular.module("components", ).component("appHeader", {
 	controller: function($scope, $rootScope, $location, jqSignService, userModel, $cookies) {
 		this.$onInit = function() {
 
+			$scope.isShowHeader = true;
 			$scope.isSignin = false;
 			$scope.signinBtn = "Войти";
 			if(userModel.user != null) {
@@ -45,6 +46,10 @@ angular.module("components", ).component("appHeader", {
 				$scope.userHtml = "<i class='glyphicon glyphicon-user'>" + userModel.user + "</i>";
 				$scope.signinBtn = "Выйти";
 			}
+		});
+
+		$rootScope.$on("show-header", function(event, data) {
+			$scope.isShowHeader = data;
 		})
 	}
 });

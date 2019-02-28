@@ -13,6 +13,10 @@ angular.module("controllers").controller("whatIsEngineScreenController", functio
 				date: new Date(2018, 3, 18)
 			};
 
+			$scope.isShowModalImage = false;
+			$scope.src = null;
+			$scope.imageDiscription = null;
+
 			$scope.url = "php/chatik2.php";
 
 			$scope.content = [
@@ -39,4 +43,16 @@ angular.module("controllers").controller("whatIsEngineScreenController", functio
 		}
 
 		init();
+
+		$scope.showModalImage = function(src, discription) {
+			$scope.src = src;
+			$scope.imageDiscription = discription;
+			$scope.isShowModalImage = true;
+			$scope.$emit("show-header", !$scope.isShowModalImage);
+		}
+
+		$scope.hideModalImage = function() {
+			$scope.isShowModalImage = false;
+			$scope.$emit("show-header", !$scope.isShowModalImage);
+		}
 	});
