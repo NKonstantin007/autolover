@@ -1,7 +1,15 @@
 "use strict";
 
+/**
+  *  Service of the Vigenere cipher
+  */
 angular.module("services").factory("vigenerModel", function() {
     return {
+        /**
+          * Method of encrypting alphabetic text by using a series of interwoven Caesar ciphers
+          * @param {string} text - text to be encrypted
+          * @param {string} key - encryption key
+          */
         encryptVigener: function encryptVigener(text, key) {
             var alphabet = "abcdefghijklmnopqrstuvwxyz1234567890";
             var encrypt_text = "";

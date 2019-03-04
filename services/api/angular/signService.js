@@ -1,17 +1,15 @@
 "use strict";
 
+/**
+  *  Api service using AngularJS for operation of registration and authorization
+  */
 angular.module("services").factory("angSignService", function(angBaseService) {
 
     return {
-        checkSignin: function() {
-            return angBaseService.getPromise({
-                method: "GET",
-                url: "php/enter.php",
-                params: {
-                    login: 1
-                }
-            });
-        },
+        /**
+          * User sign out method
+          * @return {object} - HttpPromise object with standard 'then' method
+          */
         signout: function() {
             return angBaseService.getPromise({
                 method: "GET",
@@ -21,6 +19,11 @@ angular.module("services").factory("angSignService", function(angBaseService) {
                 }
             });
         },
+        /**
+          * User sign up method
+          * @param {object} obj - object with user data (login, password, second password)
+          * @return {object} - HttpPromise object with standard 'then' method
+          */
         signup: function(obj) {
         	return angBaseService.getPromise({
         		method: "GET",
@@ -30,6 +33,11 @@ angular.module("services").factory("angSignService", function(angBaseService) {
                 }
         	});
         },
+        /**
+          * User sign in method
+          * @param {object} obj - object with user data (login, password)
+          * @return {object} - HttpPromise object with standard 'then' method
+          */
         signin: function(obj) {
             return angBaseService.getPromise({
                 method: "GET",

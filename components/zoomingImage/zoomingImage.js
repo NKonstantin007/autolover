@@ -1,11 +1,14 @@
 'use strict'
 
+/**
+  * Component zooming image 
+  */
 angular.module("components").component("zoomingImage", {
 	templateUrl: "components/zoomingImage/zoomingImage.html",
 	bindings: {
-        src: "@",
-        discription: "@",
-        onClick: "&"
+        src: "@",			/// image path
+        discription: "@",	/// image discription
+        onClick: "&"		/// method for click by image
     },
 	controller: function($scope) {
 
@@ -13,15 +16,18 @@ angular.module("components").component("zoomingImage", {
 		var src = null;
 		var discription = null;
 		
+		/**
+		  * Zooming of image 
+		  */
 		$scope.clickImage = function() {
-			console.log(src);
-			console.log(discription);
 			onClick({
 				src: src,
 				discription: discription
 			});
 		}
-
+		/**
+ 		  * Method for initialization of controller
+ 		  */
 		this.$onInit = function() {
 			onClick = this.onClick;
 			src = this.src;

@@ -1,8 +1,14 @@
 'use strict'
 
+/**
+  * Screen tab - "Регистрация" 
+  */
 angular.module("controllers")
 	.controller("signupScreenController", function($scope, jqSignService, numberModel, vigenerModel, jqGenerateCloseKeyService) {
 
+	/**
+ 	  * Method for initialization
+ 	  */
 	function init() {
 		$scope.newUser = {
 			login: "",
@@ -13,52 +19,58 @@ angular.module("controllers")
 
 	init();
 
+	/**
+	   * reset error slyle of inputs
+	   */
 	function resetInput() {
-		$scope.loginIsError = false;
-		$scope.passwordIsError = false;
-		$scope.secondPasswordIsError = false;
+		$scope.loginIsError = false;			/// reset login
+		$scope.passwordIsError = false;			/// reset password
+		$scope.secondPasswordIsError = false;	/// reset second password
 	}
 
 
-	// Проверка на валиднсть форм при регистрации
+	/**
+	  * Validation of forms for registration
+	  * @return {string} name of the error
+	  */
 	function validate() {
-		// перед проверкой сбрасываются стили выделения input и alert
+		/// Before validation, the input error styles are reset.
 		resetInput();
 
-		var fail = true // хранит название ошибки
-		const pattern = /[^0-9a-z]/i;   // RegExp для проверки корректности ввода допустимых символов 	
+		var fail = true /// stores the name of the error
+		const pattern = /[^0-9a-z]/i;   /// RegExp to validate the input of valid characters	
 
-		// проверка логина на пустоту
+		/// check login for emptiness
 		if($scope.newUser.login.trim() == "") {
 			fail = "Вы не ввели логин";
 			$scope.loginIsError = true;
 			return fail;
 		} 
-		// проверка логина на соответствие паттерну 
+		// check login for compliance with the pattern
 		else if(pattern.test($scope.newUser.login.trim())) {
 			fail = "Логин содержит недопустимые символы";
 			$scope.loginIsError = true;
 			return fail;
 		} 
-		// проверка пароля на пустоту
+		// check password for emptiness
 		else if($scope.newUser.password.trim() == "") {
 			fail = "Вы не ввели пароль";
 			$scope.passwordIsError = true;
 			return fail;
 		} 
-		// проверка пароля на длинну
+		/// check password for length
 		else if($scope.newUser.password.trim().length < 6) {
 			fail = "Слишком короткий пароль";
 			$scope.passwordIsError = true;
 			return fail;
 		}
-		// проверка пароля на допустимые символы
+		/// check password for compliance with the pattern
 		else if(pattern.test($scope.newUser.password.trim())) {
 			fail = "Пароль содержит недопустимые символы";
 			$scope.passwordIsError = true;
 			return fail;
 		}
-		// проверка паролей на равенство
+		/// check password for equal with second password
 		else if($scope.newUser.password.trim() != $scope.newUser.secondPassword.trim()) {
 			fail = "Пароли не совпадают";
 			$scope.passwordIsError = true;
@@ -68,58 +80,65 @@ angular.module("controllers")
 		return fail;
 	}
 	
+	/**
+      * Sign up user using Diffie–Hellman's ptotocol
+ 	  */
 	$scope.signupUser = function() {
 
-		var key = "autolover";	// ключ шифрования логина и пароля шифром Вижинера
-		var result = validate(); // проверка формы на валидность
-
+		var result = validate(); /// validation of the form
+		/// if there is an error
 		if(result != true) {
-			$scope.message = "<b>Ошибка! </b>" + result;
-			$scope.alertClass = "alert-danger";
+			$scope.message = "<b>Ошибка! </b>" + result;	/// set text error message 
+			$scope.alertClass = "alert-danger";				/// set class of alert
 		}
 		else {
 
-			// формируем большие и простые чила
+			/// create large and simple numbers
 			var p = numberModel.getRandomPrimitiveNumber(26);
 			var g = numberModel.getPrimitiveRootModule(p, 26);
-			// получаем числа а и А, как будто мы - Алиса
+			/// get the numbers a and A as if we are Alice
 			var a = numberModel.getRandomBigInteger(25);
 			var A = g.modPow(a, p);
-			// отправляем данные Бобу для получения числа В
+			/// send data to Bob to get number B
 			var obj={
 				"p": p.toString(),
 				"g": g.toString(),
 				"A": A.toString()
 			};
 
-			var B = 0; // число которое получим от Боба в ответ
+			var B = 0; /// the number we get from Bob in return
 			jqGenerateCloseKeyService.getB(obj).then(
 				function(data) {
 					B = bigInt(data["B"]);
-					var closeKey = B.modPow(a, p).toString(); // получаем закрытый ключ
-					signup(closeKey);
+					var closeKey = B.modPow(a, p).toString(); 	/// create lose key
+					signup(closeKey);						 	/// user sign up 
 				}
 			);
 		}
 	}
 
+	/**
+ 	   * Sign up user
+ 	   * @param {BigInteger} key - close key in Diffie–Hellman's ptotocol
+ 	   */
 	function signup(key) {
-		// получаем объект для отправки на сервер
+		/// create the object to send to the server
 		var obj = {
-			login: vigenerModel.encryptVigener($scope.newUser.login, key).toLowerCase(), // шифруем логин
-			password: vigenerModel.encryptVigener($scope.newUser.password, key).toLowerCase() // шифруем пароль
+			login: vigenerModel.encryptVigener($scope.newUser.login, key).toLowerCase(), 			/// encrypt login
+			password: vigenerModel.encryptVigener($scope.newUser.password, key).toLowerCase() 		/// encrypt password
 		};
-
+		/// sign up user using service
 		jqSignService.signup(obj).then(
 			function(data) {
 				var result = data;
+				///if registration is successful
 				if(result == "success") {
-					$scope.alertClass = "alert-success";
-					$scope.message = "<b>Поздравляем!</b>" + "Регистрация прошла успешно";
+					$scope.alertClass = "alert-success";										/// set class of alert
+					$scope.message = "<b>Поздравляем!</b>" + "Регистрация прошла успешно";		/// set text message
 				}
 				else {
-					$scope.alertClass = "alert-danger";
-					$scope.message = "<b>Ошибка! </b>" +  "Пользователь с данным логином уже существует";
+					$scope.alertClass = "alert-danger";														/// set class of alert
+					$scope.message = "<b>Ошибка! </b>" +  "Пользователь с данным логином уже существует";	/// set text message
 				}
 			}
 		);

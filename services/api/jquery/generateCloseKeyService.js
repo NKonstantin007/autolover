@@ -1,32 +1,16 @@
-// angular.module("services").provider("jqGenerateCloseKeyService", function() {
+"use strict";
 
-//     var url = undefined; 
-//     return {
-//         setUrl: function(newUrl) {
-//             if(angular.isDefined(newUrl)) {
-//                 url = newUrl;
-//             }
-//             return this;
-//         },
-//         $get: function(jqBaseService) {
-
-//             return {
-//                 getB: function(obj) {
-//                     return jqBaseService.getPromise({
-//                         type: "POST",
-//                         url: url,
-//                         dataType: 'json',
-//                         data: "param="+JSON.stringify(obj)
-//                     });
-//                 }
-//             };
-//         }
-//     }
-// });
-
+/**
+  *  Api service using jQuery for generation of close key by Diffie–Hellman's ptotocol
+  */
 angular.module("services").factory("jqGenerateCloseKeyService", function(jqBaseService) {
 
     return {
+        /**
+          * Send data to Bob to get number B
+          * @param {object} obj - object with large and simple numbers (number p, number g, number A)
+          * @return {object} - promise object with standard 'then' method
+          */
         getB: function(obj) {
             return jqBaseService.getPromise({
                 type: "POST",

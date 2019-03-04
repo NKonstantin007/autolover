@@ -1,5 +1,8 @@
 "use strict";
 
+/**
+  *  Site routing settings
+  */
 angular.module("app").config(["$routeProvider", function ($routeProvider) {
 	$routeProvider.when("/home", {
 		templateUrl: "screens/homeScreen/homeScreen.html",
