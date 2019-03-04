@@ -34,20 +34,25 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -55,32 +60,21 @@ table {
 
 /*
 =========================================
-Èìïîðò øðèôòà
+Font import
 =========================================
 */
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
-/*
-=========================================
-Block size
-=========================================
-*/
-*{
-	box-sizing: border-box;
-}
-
-.slideshow .breadcrumb{
-	position: absolute;
-	background: rgba(245, 245, 245, 0.6);
-	top: 35px;
-	left: 40px;
-	z-index: 1;
-}
 
 /*
 =========================================
 Genaral style
 =========================================
 */
+
+*{
+	box-sizing: border-box;
+}
+
 h1,
 h3,
 h4.
@@ -102,15 +96,18 @@ h1{
 	font-size: 36px;
 	line-height: 40px;
 }
+
 h3{
 	font-size: 24px;
 }
+
 h5{
 	font-size: 18px;
 	color: #1D8E75;
 	font-weight: normal;
 	text-transform: uppercase;
 }
+
 body{
 	color: #3C3C3C;
 	background: #13133B;
@@ -120,7 +117,7 @@ body{
 
 /*
 =========================================
-Ññûëêè
+Links
 =========================================
 */																																				
 a{
@@ -128,19 +125,17 @@ a{
 	text-decoration: none;
 	transition: 0.5s ease;
 }
+
 a:hover{
 	color: #1D8E75;
 	text-decoration: none;
 }
-.col-1-3 a:hover h3{
-	color: #1D8E75;
-}
+
 /*
 =========================================
 Header and Footer
 =========================================
 */
-
 .navbar{
 	background: rgba(19, 19, 59, 0.98);
 }
@@ -162,9 +157,11 @@ Header and Footer
 .navigation li a:hover{
 	background: #F5F5F5;
 }
+
 .navigation li:last-child{
 	padding-right: 0;
 }
+
 /*
 =========================================
 Main area of page
@@ -175,6 +172,7 @@ Main area of page
 	background: #F5F5F5;
 	padding: 70px 0 40px 0;
 }
+
 .main-area img{
 		border-radius: 5px;
 		width: 100%;
@@ -182,11 +180,13 @@ Main area of page
 		margin-bottom: 20px;
 		border: 2px solid #186B59;
 }
+
 .main-area h3,
 .main-area h5{
 	margin-bottom: 20px;
 	text-align: center;
 }
+
 .main-area h5{
 	letter-spacing: 3px;
 }
@@ -196,7 +196,6 @@ Main area of page
 Signin and Signup
 ========================================
 */
-
 .sign-in-and-up-btn{
   border-radius: 5px;
   border: 0;
@@ -235,23 +234,26 @@ form input{
 Annotation
 =========================================
 */
-
 .annotation img{
 	width: 100%;
 	border-radius: 5px;
 	margin-right: 20px;
 }
+
 .annotation p{
 	font: 400 16px/22px Arial Georgia sans-serif;
 }
+
 .annotation a:hover h3{
 	color: #1D8E75;
 }
+
 .annotation a h3{
 	font-weight: bold;
 	text-align: left;
 	letter-spacing: 1px;
 }
+
 .annotation{
 	margin-bottom: 40px;
 	border-bottom: 1px solid #BABDB6;
@@ -262,7 +264,6 @@ Annotation
 Modal image
 =========================================
 */
-
 .modal-image{
 	position: fixed;
 	z-index: 10;
@@ -294,7 +295,7 @@ Modal image
 }
 
 .modal-image img,
-#caption{
+.caption{
 	animation-name:zoom;
 	animation-duration: 1s;
 }
@@ -313,6 +314,7 @@ Modal image
 	font-weight: bold;
 	transition: 0.3s;
 }
+
 .close:hover, 
 .close:focus{
 	color: #bbb;
@@ -320,38 +322,11 @@ Modal image
 	cursor: pointer;
 }
 
-
-
-/*
-=========================================
-Êíîïêà íàâåðõ
-=========================================
-*/
-.btn-top{
-  border: 0;
-  background: radial-gradient(#1D8E75, #186B59);
-  padding: 8px 20px;
-  font-size: 14px;
-  color: #fff;
-  display: none;
-  position: fixed;
-  top: 120px;
-  right: 30px;
-  z-index: 1;
-  outline: none;
-  cursor: pointer;
-  border-radius: 10px;
-}
-.btn-top:hover{
-  background: #1D8E75;
-}
-
 /*
 =========================================
 Articles
 =========================================
 */
-
 .text-article{
 	margin-left: 50px;
 	margin-top: 66px;
@@ -359,13 +334,11 @@ Articles
 	padding: 10px 10px 10px 0;
 	border-radius: 5px
 }
+
 .text-article img{
 	box-shadow: 3px 6px 2px rgba(0, 0, 0, .3);
 }
-/*.text-article .row:last-child{
-	background: #FFFFFF;
-	border-radius: 4px;
-}*/
+
 .text-article h3{
 	text-align: left;
 }
