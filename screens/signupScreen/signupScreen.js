@@ -131,14 +131,18 @@ angular.module("controllers")
 		jqSignService.signup(obj).then(
 			function(data) {
 				var result = data;
-				///if registration is successful
-				if(result == "success") {
-					$scope.alertClass = "alert-success";										/// set class of alert
-					$scope.message = "<b>Поздравляем!</b>" + "Регистрация прошла успешно";		/// set text message
-				}
-				else {
-					$scope.alertClass = "alert-danger";														/// set class of alert
-					$scope.message = "<b>Ошибка! </b>" +  "Пользователь с данным логином уже существует";	/// set text message
+				switch(result) {
+					case "success": 
+						$scope.alertClass = "alert-success";										/// set class of alert
+						$scope.message = "<b>Поздравляем!</b>" + "Регистрация прошла успешно";		/// set text message
+						break;
+					case "error":
+						$scope.alertClass = "alert-danger";														/// set class of alert
+						$scope.message = "<b>Ошибка! </b>" +  "Пользователь с данным логином уже существует";	/// set text message
+						break;
+					default:
+						$scope.alertClass = "alert-danger";																	/// set class of alert
+						$scope.message = "<b>Ошибка! </b>" + "Проблемы с сервером. Попробуйте зарегистрироваться позже";	/// set text message
 				}
 			}
 		);

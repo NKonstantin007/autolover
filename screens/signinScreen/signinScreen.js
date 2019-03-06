@@ -119,7 +119,6 @@ angular.module("controllers")
 			jqSignService.signin(obj).then(
 				function(data) {
 					var result = data;
-					///if authorization is successful
 					if(result == "success") {
 						$cookies.putObject("autoloverUser", $scope.user);	/// set cookies with user data
 						userModel.setUser($scope.user.login);				/// set userModel
@@ -130,6 +129,21 @@ angular.module("controllers")
 						/// set text error message 
 						$scope.message = "<b>Ошибка! </b>" +  
 							"Пользователя с таким паролем и логином не существует. Возможно данные введены неправильно";
+					}
+					switch(result) {
+						case "success": 
+							$cookies.putObject("autoloverUser", $scope.user);	/// set cookies with user data
+							userModel.setUser($scope.user.login);				/// set userModel
+							$scope.$emit("user-changed");						/// emit event for change design of header
+							$location.path("/home");							/// go to main page of site
+							break;
+						case "error": 
+							/// set text error message 
+							$scope.message = "<b>Ошибка! </b>" +  
+							"Пользователя с таким паролем и логином не существует. Возможно данные введены неправильно";
+							break;
+						default:
+							$scope.message = "<b>Ошибка! </b>" + "Проблемы с сервером. Попробуйте войти позже";
 					}
 				}
 			);
