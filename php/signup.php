@@ -1,5 +1,4 @@
 <?php
-	include('../libs/php/BigInteger.php');
 	session_start();	// старт сессии
 
 	if($_POST['param'])
@@ -27,14 +26,20 @@
 		if(!empty($login) && !empty($password) &&  (strlen($password) >= 6) )
 		{
 			$db = mysqli_connect("localhost", "root", "", "auto");
-			$query = mysqli_query($db, "SELECT * FROM users WHERE login = '$login'") or die (mysql_error($db));
+			if($db->connect_error)
+			{
+				die($db->connect_error);
+			}
+
+			createTableUsers($db);
+
+			$query = mysqli_query($db, "SELECT * FROM users WHERE login = '$login'") or die(mysqli_error($db));
 			if(mysqli_num_rows($query) == 0)
 			{
 				$password = md5($password);
 				$query = mysqli_query($db, "INSERT INTO users (login, password) VALUES('$login', '$password')") or die(mysqli_error($db));
 				mysqli_close($db);
 				echo "success";
-				exit();
 			}
 			else
 			{
@@ -42,21 +47,19 @@
 
 			}	
 		}
-		else
-		{
-				echo "error";
-		}
 	}
 
-	function getRandomBigInteger($rank) 
-	{
-        $res = "" + rand(1, 9);
-        for ($i = 1; $i < $rank; $i++) 
-		{
-            $res = $res + rand(0, 9);
-        }
-        return $res;
-    }
+	// создание таблицы users если она еще не существует
+	function createTableUsers($db) {
+		$query = "CREATE TABLE IF NOT EXISTS users (
+  			id int(11) NOT NULL AUTO_INCREMENT,
+  			login varchar(100) NOT NULL UNIQUE,
+  			password varchar(100) NOT NULL,
+  			PRIMARY KEY (id)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+
+		mysqli_query($db, $query) or die(mysqli_error($db));
+	}
 	
 	// Дешифрование методом Вижинера
 	function decryptVigener($text, $key)

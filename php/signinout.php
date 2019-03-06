@@ -1,5 +1,4 @@
 <?php
-	include('../libs/php/BigInteger.php');
 	session_start();
 
 	// обрабока запроса выхода из учетной записи пользователя
@@ -17,34 +16,6 @@
 		}
 	}
 
-	if($_POST['param'])
-	{
-		$param = json_decode($_POST['param']);
-		$p = new Math_BigInteger($param->p);	
-		$g = new Math_BigInteger($param->g);
-		$A = new Math_BigInteger($param->A);
-		
-		$b = new Math_BigInteger(getRandomBigInteger(25));
-		$B = $g->modPow($b, $p);
-		$close_key = $A->modPow($b, $p)->toString();
-		
-		$_SESSION["close_key"] = $close_key;
-		echo json_encode(array("B"=>$B->toString()));
-	}
-
-	// обрабтка запроса, для проверки авторизации пользователя
-	if($_GET['login'])
-	{
-		if(isset($_SESSION["login"]))
-		{			
-			echo $_SESSION["login"];
-		}
-		else
-		{
-			echo "";
-		}
-	}
-
 	// Обработка запроса авторизации пользователя
 	if($_POST['user'])
 	{
@@ -55,7 +26,14 @@
 		if(!empty($login) && !empty($password) &&  (strlen($password) >= 6) )
 		{
 			$db = mysqli_connect("localhost", "root", "", "auto");
-			$query = mysqli_query($db, "SELECT * FROM users WHERE login = '$login'");
+			if($db->connect_error)
+			{
+				die($db->connect_error);
+			}
+
+			createTableUsers($db);
+
+			$query = mysqli_query($db, "SELECT * FROM users WHERE login = '$login'") or die(mysqli_error($db));
 			if(mysqli_num_rows($query) == 1)
 			{
 				$row = mysqli_fetch_assoc($query);
@@ -77,15 +55,17 @@
 		}
 	}
 
-	function getRandomBigInteger($rank) 
-	{
-        $res = "" + rand(1, 9);
-        for ($i = 1; $i < $rank; $i++) 
-		{
-            $res = $res + rand(0, 9);
-        }
-        return $res;
-    }
+	// создание таблицы users если она еще не существует
+	function createTableUsers($db) {
+		$query = "CREATE TABLE IF NOT EXISTS users (
+  			id int(11) NOT NULL AUTO_INCREMENT,
+  			login varchar(100) NOT NULL UNIQUE,
+  			password varchar(100) NOT NULL,
+  			PRIMARY KEY (id)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+
+		mysqli_query($db, $query) or die(mysqli_error($db));
+	}
 	
 	// Дешифрование методом Вижинера
 	function decryptVigener($text, $key)
