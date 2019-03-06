@@ -13,7 +13,7 @@ angular.module("services").factory("angSignService", function(angBaseService) {
         signout: function() {
             return angBaseService.getPromise({
                 method: "GET",
-                url: "php/enter.php",
+                url: "php/signinout.php",
                 params: {
                     exit: 1
                 }
@@ -27,7 +27,7 @@ angular.module("services").factory("angSignService", function(angBaseService) {
         signup: function(obj) {
         	return angBaseService.getPromise({
         		method: "GET",
-        		url: "php/registration.php",
+        		url: "php/signup.php",
         		params: {
                     user: obj
                 }
@@ -41,7 +41,7 @@ angular.module("services").factory("angSignService", function(angBaseService) {
         signin: function(obj) {
             return angBaseService.getPromise({
                 method: "GET",
-                url: "php/enter.php",
+                url: "php/signinout.php",
                 params: {
                     user: obj
                 }

@@ -13,7 +13,7 @@ angular.module("services").factory("jqSignService", function(jqBaseService) {
         signout: function() {
             return jqBaseService.getPromise({
                 type: "POST",
-                url: "php/enter.php",
+                url: "php/signinout.php",
                 data: "exit=1"
             });
         },
@@ -25,7 +25,7 @@ angular.module("services").factory("jqSignService", function(jqBaseService) {
         signup: function(obj) {
         	return jqBaseService.getPromise({
         		type: "POST",
-        		url: "php/registration.php",
+        		url: "php/signup.php",
         		data: "user="+JSON.stringify(obj)
         	});
         },
@@ -37,7 +37,7 @@ angular.module("services").factory("jqSignService", function(jqBaseService) {
         signin: function(obj) {
             return jqBaseService.getPromise({
                 type: "POST",
-                url: "php/enter.php",
+                url: "php/signinout.php",
                 data:"user="+JSON.stringify(obj)
             });
         }
