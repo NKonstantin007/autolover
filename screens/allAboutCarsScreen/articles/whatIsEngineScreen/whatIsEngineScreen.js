@@ -24,7 +24,7 @@ angular.module("controllers").controller("whatIsEngineScreenController", functio
 			$scope.src = null;					/// image path
 			$scope.imageDiscription = null;		/// image discription
 
-			$scope.url = "php/chatik2.php";		/// server connection URL
+			$scope.url = "php/engineChat.php";		/// server connection URL
 			/// content of the article
 			$scope.content = [
 			{

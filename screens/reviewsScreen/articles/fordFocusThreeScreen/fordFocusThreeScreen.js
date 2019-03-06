@@ -20,7 +20,7 @@ angular.module("controllers").controller("fordFocusThreeScreenController", funct
 				date: new Date(2017, 6, 5)
 			};
 
-			$scope.url = "php/chatik1.php";		/// server connection URL
+			$scope.url = "php/fordChat.php";		/// server connection URL
 
 			$scope.isShowModalImage = false;	/// modal image does not show
 			$scope.src = null;					/// image path
